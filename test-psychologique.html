@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Introduction au test psychologique de Fresh Mind. Évaluez votre bien-être mental dès maintenant.">
+    <title>FRESH MIND | Test Psychologique</title>
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #398166;
+            --background-color: #ffffff;
+            --accent-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-header {
+            padding: 1rem;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .test-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .test-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .test-header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .option-card {
+            padding: 2rem;
+            background-color: var(--accent-color);
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .option-card h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .option-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+
+            .test-container {
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+        </nav>
+    </header>
+
+    <main class="test-container">
+        <div class="test-header">
+            <h1>Nos Services</h1>
+            <p>Choisissez l'option qui vous convient le mieux</p>
+        </div>
+
+        <div class="options-container">
+            <div class="option-card">
+                <h2>Test Psychologique</h2>
+                <p>Évaluez votre bien-être mental avec notre test complet et recevez des recommandations personnalisées.</p>
+                <a href="https://form.jotform.com/250335847118054" target="_blank" class="btn">Commencer le Test</a>
+            </div>
+
+            <div class="option-card">
+                <h2>Assistante AI</h2>
+                <p>Discutez avec notre assistante AI pour obtenir un soutien immédiat et des conseils personnalisés.</p>
+                <a href="https://agent.jotform.com/0194cd6b4614766a9b53a3711802719b6b51" target="_blank" class="btn">Consulter l'AI</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

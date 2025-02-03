@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Abonnement Fresh Mind - Choisissez un plan qui convient à vos besoins pour accéder à nos services et ressources en bien-être mental.">
+    <title>FRESH MIND | Abonnement</title>
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #398166;
+            --background-color: #ffffff;
+            --accent-color: #ffffff;
+            --danger-color: #E74C3C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .main-header {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
+        }
+
+        .hero-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .plans {
+            padding: 5rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .plans h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .plan-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plan-card {
+            background-color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .plan-card h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .plan-card p {
+            margin: 1rem 0;
+            font-size: 1rem;
+        }
+
+        .plan-card .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            background-color: var(--primary-color);
+            color: white;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .plan-card .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="aide-immediate.html">Aide Immédiate</a></li>
+                <li><a href="abonnement.html" class="active">Abonnement</a></li>
+                <li><a href="test-psychologique.html">Tests</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Choisissez votre plan d'abonnement</h2>
+            <p>Accédez à des services exclusifs et à des ressources pour améliorer votre bien-être mental.</p>
+        </div>
+    </section>
+
+    <section class="plans">
+        <h3>Nos Plans</h3>
+        <div class="plan-grid">
+            <div class="plan-card">
+                <h2>Plan d'une minute </h2>
+                <p><strong>Prix : 1DH</strong></p>
+                <p>Profitez d'une écoute professionnelle et bienveillante au tarif accessible de 1 DH par minute.</p>
+                    <li> Prenez soin de votre bien-être mental sans vous soucier de votre budget.</li>
+                </ul>
+                <p><em>Commencez dès maintenant et prenez soin de vous.</em></p>
+                <a href="login.html" class="btn">S'inscrire</a>
+            </div>
+            <div class="plan-card">
+                <h2>Pack "1 Mois"</h2>
+                <p><strong>Prix : 600 DH</strong></p>
+                <li>Optez pour notre pack mensuel à 600 DH et bénéficiez d'un accompagnement psychologique complet et illimité.</li>
+                <li>Investissez dans votre bien-être mental à un tarif avantageux et adapté à vos besoins.</li>
+            </ul>
+            <p><em>Investissez dans votre équilibre mental sur le long terme.</em></p>
+                <a href="login.html" class="btn">S'abonner</a>
+            </div>
+            <div class="plan-card">
+                <h2>Pack "3 Mois"</h2>
+                <p><strong>Prix : 1500 DH</strong></p>
+                <p>Choisissez notre pack premium à 1500 DH par mois pour un suivi psychologique approfondi et personnalisé.</p>
+                <ul>
+                    <li>Profitez d'un accompagnement complet et intensif, conçu pour vous aider à atteindre un équilibre mental optimal.</li>
+                </ul>
+                <p><em>Offrez-vous un parcours complet pour retrouver sérénité et confiance.</em></p>
+                <a href="login.html" class="btn">S'abonner</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: freshmindmaroc@gmail.com</p>
+                <p>Téléphone: +212643569360</p>
+                <p>Adresse: 80000, Agadir</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="consultation.html">Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 fresh mind. Tous droits réservés.</p>

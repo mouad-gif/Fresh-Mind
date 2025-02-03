@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SOS Bien-Être - Obtenez une assistance immédiate pour vos besoins psychologiques. Nous sommes là pour vous aider 24/7.">
+    <title>FRESH MIND | Aide Immédiate</title>
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #398166;
+            --background-color: #ffffff;
+            --accent-color: #ffffff;
+            --danger-color: #E74C3C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .main-header {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo h1:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 0.5rem;
+        }
+
+        .btn.primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn.secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .services {
+            padding: 5rem 2rem;
+            background-color: var(--background-color);
+        }
+
+        .services h3 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--danger-color);
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="aide-immediate.html" class="active">Aide Immédiate</a></li>
+                <li><a href="abonnement.html">Abonnement</a></li>
+                <li><a href="test-psychologique.html">Tests</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Assistance Immédiate</h2>
+            <p>Nous sommes disponibles 24/7 pour vous aider dans les situations d'urgence psychologique. Contactez-nous maintenant.</p>
+            <a href="tel:+212643569360" class="btn primary">Appelez maintenant</a>
+            <a href="consultation.html" class="btn secondary">Planifiez une consultation</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h3>Comment Nous Aidons</h3>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">📞</div>
+                <h4>Assistance téléphonique</h4>
+                <p>Parlez à un professionnel qualifié immédiatement.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💬</div>
+                <h4>Chat en ligne</h4>
+                <p>Discutez en toute confidentialité avec nos experts.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🆘</div>
+                <h4>Interventions</h4>
+                <p>Recevez des interventions rapides en cas de besoin urgent.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h4>Support continu</h4>
+                <p>Bénéficiez d'un suivi personnalisé et régulier.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contactez-nous</h4>
+                    <p>Email: freshmindmaroc@gmail.com</p>
+                    <p>Téléphone: +212643569360</p>
+                    <p>Adresse: 80000 , Agadir</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens rapides</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="consultation.html">Consultation</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Urgences</h4>
+                <ul>
+                    <li>Numéro d'urgence: 150</li>
+                    <li>SMUR : 141</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FRESH MIND. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FRESH MIND - Évaluez votre bien-être mental grâce à nos outils interactifs et professionnels.">
+    <title>FRESH MIND | Auto-évaluation</title>
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #333;
+            --background-color: #ffffff;
+            --accent-color: #f9f9f9;
+            --danger-color: #E74C3C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        /* Header Styles */
+        .main-header {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo h1:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Content Section */
+        .content {
+            padding: 4rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .content ul {
+            list-style: disc inside;
+            margin-bottom: 2rem;
+        }
+
+        .content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 2rem 1rem;
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #fff;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="auto-evaluation.html" class="active">Auto-évaluation</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="aide-immediate.html">Aide Immédiate</a></li>
+                <li><a href="abonnement.html">Abonnement</a></li>
+                <li><a href="test-psychologique.html">Tests</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h2>Évaluez votre bien-être mental</h2>
+            <p>Utilisez nos outils interactifs pour mieux comprendre votre état mental et découvrir des solutions adaptées.</p>
+            <a href="#evaluation" class="btn">Commencer l'évaluation</a>
+        </div>
+    </section>
+
+    <section class="content" id="evaluation">
+        <h3>Pourquoi faire une auto-évaluation&nbsp;?</h3>
+        <p>Une auto-évaluation est un premier pas essentiel pour prendre soin de votre bien-être mental. Elle vous aide à :</p>
+        <ul>
+            <li>Identifier les signes de stress, d'anxiété ou de dépression.</li>
+            <li>Comprendre vos émotions et comportements actuels.</li>
+            <li>Planifier les prochaines étapes vers un meilleur équilibre.</li>
+        </ul>
+        <p>Nos outils sont simples, rapides et basés sur des approches reconnues en psychologie.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FRESH MIND. Tous droits réservés.</p>
+        <div class="footer-bottom">
+            <p>Site web conçu pour vous offrir un espace de soutien et de bien-être.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

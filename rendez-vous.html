@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation de Rendez-vous - SOS Bien-Être</title>
+    <link rel="stylesheet" >
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet">
+</head>
+<body>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+#calendrier {
+    margin: 20px;
+    text-align: center;
+}
+
+#details {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+form label {
+    display: block;
+    margin-top: 10px;
+}
+
+form input, form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+
+    </style>
+    <header>
+        <h1>Réservez votre Consultation</h1>
+    </header>
+
+    <section id="calendrier">
+        <div id="calendar"></div>
+    </section>
+
+    <section id="details">
+        <h2>Choisissez un créneau horaire :</h2>
+        <form id="reservationForm" action="reservations.php" method="POST">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="heure">Heure:</label>
+            <select id="heure" name="heure" required>
+                <!-- Les créneaux horaires seront ajoutés ici dynamiquement -->
+            </select>
+            
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <button type="submit">Réserver</button>
+        </form>
+    </section>
+
+    <script>
+             document.addEventListener('DOMContentLoaded', function() {
+    const calendarEl = document.getElementById('calendar');
+    const heureSelect = document.getElementById('heure');
+    
+    // Initialiser FullCalendar
+    const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        events: '/path_to_php_to_get_events.php', // URL pour récupérer les événements réservés
+        dateClick: function(info) {
+            document.getElementById('date').value = info.dateStr;
+            updateAvailableTimes(info.dateStr);
+        }
+    });
+    
+    calendar.render();
+
+    // Mettre à jour les créneaux horaires disponibles en fonction du jour sélectionné
+    function updateAvailableTimes(date) {
+        // Récupérer les créneaux horaires pour la date sélectionnée via une requête AJAX
+        fetch('/get_available_times.php?date=' + date)
+            .then(response => response.json())
+            .then(data => {
+                // Vider la liste des heures actuelles
+                heureSelect.innerHTML = '';
+                data.times.forEach(function(time) {
+                    let option = document.createElement('option');
+                    option.value = time;
+                    option.textContent = time;
+                    heureSelect.appendChild(option);
+                });
+            });
+    }
+});
+    </script>
+</body>
+</html>
