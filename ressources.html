@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="FRESH MIND - Découvrez des ressources pour améliorer votre bien-être mental et émotionnel.">
     <title>FRESH MIND | Ressources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --primary-color: #398166;
@@ -14,7 +15,6 @@
             --accent-color: #ffffff;
             --danger-color: #E74C3C;
         }
-
         * {
             margin: 0;
             padding: 0;
@@ -48,12 +48,6 @@
 
         .logo h1 {
             font-size: 1.8rem;
-            color: var(--primary-color);
-            transition: transform 0.3s ease;
-        }
-
-        .logo h1:hover {
-            transform: scale(1.05);
         }
 
         .nav-links {
@@ -66,11 +60,6 @@
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
         }
 
         .nav-links a.active {
@@ -78,117 +67,388 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-        .hero {
-            height: 60vh;
+        .content-wrapper {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #398166 30%, #ffffff 100%);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
+            margin-top: 80px;
             padding: 2rem;
+            gap: 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero h2 {
-            font-size: 2.5rem;
-            color: var(--accent-color);
+        .sidebar {
+            width: 300px;
+            flex-shrink: 0;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            margin-top: 1rem;
-        }
-
-        .resources {
-            padding: 5rem 2rem;
-            background-color: var(--background-color);
-        }
-
-        .resources h3 {
-            text-align: center;
-            font-size: 2.5rem;
+        .search-box {
+            padding: 1rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 2rem;
         }
 
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        .search-box input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
-        .resource-card {
-            background-color: var(--accent-color);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        .filters {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .resource-card:hover {
-            transform: translateY(-10px);
+        .filter-section {
+            margin-bottom: 1.5rem;
         }
 
-        .resource-card h4 {
+        .filter-section h4 {
+            margin-bottom: 0.8rem;
+            color: var(--primary-color);
+        }
+
+        .filter-options label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .courses-container {
+            flex-grow: 1;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
             font-size: 1.5rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
-        .resource-card p {
-            font-size: 1rem;
-            color: var(--text-color);
+        .course-description {
+            margin-bottom: 1rem;
+            color: #666;
         }
 
-        footer {
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .instructor {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .instructor img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .btn-enroll {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-enroll:hover {
+            background-color: #2c6b52;
+        }
+
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+            }
+        }
+
+        .courses-section {
+            padding: 120px 20px 40px;
+            background: linear-gradient(135deg, #398166 0%, #ffffff 100%);
+        }
+
+        .courses-section h2 {
+            text-align: center;
+            color: white;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .course-header {
+            background: #398166;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .course-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .course-content {
+            padding: 20px;
+        }
+
+        .course-info {
+            margin-bottom: 20px;
+        }
+
+        .course-info p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .course-info i {
+            color: #398166;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .course-description {
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .course-footer {
+            padding: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+        }
+
+        .start-course-btn {
+            background: #398166;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .start-course-btn:hover {
+            background: #2c6b4f;
+            transform: scale(1.05);
+        }
+
+        .progress-bar {
+            background: #eee;
+            height: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            width: 0%;
+            height: 100%;
+            background: #398166;
+            transition: width 0.3s ease;
+        }
+
+        @media (max-width: 1024px) {
+            .courses-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .instructor {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .instructor img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+        }
+
+        .instructor span {
+            color: white;
+            font-size: 0.9em;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #398166;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .price i {
+            margin-right: 5px;
+        }
+
+        .course-header {
+            padding-bottom: 15px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                background-color: var(--background-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .logo {
+                flex: 1;
+            }
+        }
+
+        /* Footer styles */
+        .footer {
             background-color: #333;
             color: white;
-            padding: 3rem 2rem 1rem;
+            padding: 40px 0;
+            margin-top: 50px;
         }
 
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 0 20px;
         }
 
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
         }
 
-        .footer-section a {
-            color: white;
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s;
         }
 
-        .footer-section a:hover {
+        .footer-section ul li a:hover {
             color: var(--primary-color);
         }
 
         .footer-bottom {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 20px;
+            border-top: 1px solid #555;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
             }
+        }
 
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .resources-grid {
+        @media (max-width: 480px) {
+            .footer-content {
                 grid-template-columns: 1fr;
             }
         }
@@ -200,6 +460,9 @@
             <div class="logo">
                 <h1>FRESH MIND</h1>
             </div>
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
@@ -208,70 +471,352 @@
                 <li><a href="aide-immediate.html">Aide Immédiate</a></li>
                 <li><a href="abonnement.html">Abonnement</a></li>
                 <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html">A propos</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <h2>Explorez nos ressources pour un esprit sain</h2>
-        <p>Trouvez des articles, des guides et des outils pour améliorer votre santé mentale.</p>
-    </section>
-
-    <section class="resources">
-        <h3>Ressources Disponibles</h3>
-        <div class="resources-grid">
-            <div class="resource-card">
-                <h4>Articles Informatifs</h4>
-                <p>Des articles écrits par des experts pour comprendre et améliorer votre bien-être.</p>
+    <div class="content-wrapper">
+        <aside class="sidebar">
+            <div class="search-box">
+                <input type="text" placeholder="Rechercher un cours...">
             </div>
-            <div class="resource-card">
-                <h4>Guides Pratiques</h4>
-                <p>Accédez à des guides pour gérer le stress, améliorer votre sommeil, et plus encore.</p>
-            </div>
-            <div class="resource-card">
-                <h4>Outils Interactifs</h4>
-                <p>Utilisez nos outils interactifs pour suivre vos progrès et rester motivé.</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <footer class="footer">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: freshmindmaroc@gmail.com</p>
-                    <p>Téléphone: +212643569360</p>
-                    <p>Adresse: 80000 , Agadir</p>
+            <div class="filters">
+                <div class="filter-section">
+                    <h4>Catégories</h4>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> Gestion du stress</label>
+                        <label><input type="checkbox"> Méditation</label>
+                        <label><input type="checkbox"> Psychologie positive</label>
+                        <label><input type="checkbox"> Développement personnel</label>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h3>Liens Rapides</h3>
-                    <ul>
-                        <li><a href="#accueil">Accueil</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#apropos">À Propos</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
+                <div class="filter-section">
+                    <h4>Prix</h4>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> Gratuit</label>
+                        <label><input type="checkbox"> 1-50 DH</label>
+                        <label><input type="checkbox"> 51-100 DH</label>
+                        <label><input type="checkbox"> 100+ DH</label>
+                    </div>
                 </div>
-                <footer class="footer">
-                    <div class="footer-section">
-                        <h3>Suivez-nous</h3>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/fresh__.mind/" target="_blank">
-                                <img src="C:\Users\mouad\Desktop\fresh mind\instagram.png" >
-                              </a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.tiktok.com/@fresh.mind09" target="_blank">
-                                <img src="C:\Users\mouad\Desktop\fresh mind\tik-tok.png" >
-                              </a>
+                <div class="filter-section">
+                    <h4>Niveau</h4>
+                    <div class="filter-options">
+                        <label><input type="checkbox"> Débutant</label>
+                        <label><input type="checkbox"> Intermédiaire</label>
+                        <label><input type="checkbox"> Avancé</label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="courses-container">
+            <section class="courses-section">
+                <h2>Nos Ressources Pédagogiques</h2>
+                <div class="courses-grid">
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Introduction à la Meditation</h3>
+                            <div class="instructor">
+                                <img src="beatriz castano.jpeg" alt="Dr. Sarah Alaoui">
+                                <span>Dr. Sarah Alaoui</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <p><i class="fas fa-clock"></i> Durée: 2 heures</p>
+                                <p><i class="fas fa-book"></i> 5 chapitres</p>
+                                <p><i class="fas fa-signal"></i> Niveau: Débutant</p>
+                                <p class="price"><i class="fas fa-tag"></i> Gratuite</p>
+                            </div>
+                            <p class="course-description">
+                                Découvrez les concepts fondamentaux de la psychologie et leur impact sur notre vie quotidienne.
+                            </p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="cours1.html" class="start-course-btn">Commencer</a>
                         </div>
                     </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 fresh mind. Tous droits réservés.</p>
-            </div>
-        </footer>
-       
 
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Gestion des Émotions</h3>
+                            <div class="instructor">
+                                <img src="Claude.png" alt="Dr. Karim Benjelloun">
+                                <span>Dr. Karim Benjelloun</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <p><i class="fas fa-clock"></i> Durée: 3 heures</p>
+                                <p><i class="fas fa-book"></i> 6 chapitres</p>
+                                <p><i class="fas fa-signal"></i> Niveau: Intermédiaire</p>
+                                <p class="price"><i class="fas fa-tag"></i> 89 DH</p>
+                            </div>
+                            <p class="course-description">
+                                Apprenez à identifier, comprendre et gérer vos émotions efficacement.
+                            </p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="cours2.html" class="start-course-btn">Commencer</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Techniques de Méditation</h3>
+                            <div class="instructor">
+                                <img src="nadia.jfif" alt="Dr. Nadia Ziani">
+                                <span>Dr. Nadia Ziani</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <p><i class="fas fa-clock"></i> Durée: 2.5 heures</p>
+                                <p><i class="fas fa-book"></i> 4 chapitres</p>
+                                <p><i class="fas fa-signal"></i> Niveau: Tous niveaux</p>
+                                <p class="price"><i class="fas fa-tag"></i> 99 DH</p>
+                            </div>
+                            <p class="course-description">
+                                Initiez-vous aux différentes techniques de méditation pour un esprit plus serein.
+                            </p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="cours3.html" class="start-course-btn" onclick="startCourse(event, this)">Commencer</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Communication Efficace</h3>
+                            <div class="instructor">
+                                <img src="rajl.jfif" alt="Dr. Youssef Tazi">
+                                <span>Dr. Youssef Tazi</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <p><i class="fas fa-clock"></i> Durée: 4 heures</p>
+                                <p><i class="fas fa-book"></i> 7 chapitres</p>
+                                <p><i class="fas fa-signal"></i> Niveau: Intermédiaire</p>
+                                <p class="price"><i class="fas fa-tag"></i> 129 DH</p>
+                            </div>
+                            <p class="course-description">
+                                Développez vos compétences en communication pour de meilleures relations.
+                            </p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="cours4.html" class="start-course-btn" onclick="startCourse(event, this)">Commencer</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Développement Personnel</h3>
+                            <div class="instructor">
+                                <img src="amber.jfif" alt="Dr. Amina Boutaleb">
+                                <span>Dr. Amina Boutaleb</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <p><i class="fas fa-clock"></i> Durée: 5 heures</p>
+                                <p><i class="fas fa-book"></i> 8 chapitres</p>
+                                <p><i class="fas fa-signal"></i> Niveau: Avancé</p>
+                                <p class="price"><i class="fas fa-tag"></i> 199 DH</p>
+                            </div>
+                            <p class="course-description">
+                                Explorez les outils et techniques pour votre développement personnel.
+                            </p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="cours5.html" class="start-course-btn" onclick="startCourse(event, this)">Commencer</a>
+                        </div>
+                    </div>
+
+                    <div class="course-card">
+                        <div class="course-header">
+                            <h3>Gestion du Stress</h3>
+                            <div class="instructor">
+                                <img src="hans.jfif" alt="Dr. Mehdi Rachidi">
+                                <span>Dr. Mehdi Rachidi</span>
+                            </div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-info">
+                                <p><i class="fas fa-clock"></i> Durée: 3.5 heures</p>
+                                <p><i class="fas fa-book"></i> 6 chapitres</p>
+                                <p><i class="fas fa-signal"></i> Niveau: Tous niveaux</p>
+                                <p class="price"><i class="fas fa-tag"></i> 199 DH</p>
+                            </div>
+                            <p class="course-description">
+                                Maîtrisez des techniques efficaces pour gérer votre stress au quotidien.
+                            </p>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="course-footer">
+                            <a href="cours6.html" class="start-course-btn" onclick="startCourse(event, this)">Commencer</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    < <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: freshmindmaroc@gmail.com</p>
+                <p>Téléphone: +212643569360</p>
+                <p>Adresse: 80000 , Agadir</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="aide-immediate.html">Aide Immédiate</a></li>           
+                    <li><a href="aboutus.html">À Propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                   
+                    <a href="https://www.instagram.com/fresh__.mind/" target="_blank">
+                        <img src="instagram.png" alt="Instagram" width="30" height="30">
+                    </a>
+                    <a href="https://www.tiktok.com/@fresh.mind09" target="_blank">
+                        <img src="tik-tok.png" alt="TikTok" width="30" height="30">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 fresh mind. Tous droits réservés.</p>
+        </div>
+    </footer>
+    <style>
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            margin: 20px;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #4CAF50;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            font-size: 1.5em;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        function startCourse(event, button) {
+            event.preventDefault();
+            const card = button.closest('.course-card');
+            const progress = card.querySelector('.progress');
+            let width = 0;
+            
+            const interval = setInterval(() => {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    window.location.href = button.getAttribute('href');
+                } else {
+                    width++;
+                    progress.style.width = width + '%';
+                }
+            }, 20);
+        }
+    </script>
+</body>
+</html>

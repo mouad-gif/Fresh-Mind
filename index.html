@@ -10,7 +10,7 @@
             --primary-color: #398166;
             --secondary-color: #398166;
             --text-color: #398166;
-            --background-color:#ffffff ;
+            --background-color:#ffffff;
             --accent-color: #ffffff;
             --danger-color: #E74C3C;
         }
@@ -26,12 +26,14 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
+            overflow-x: hidden;
+            font-size: 16px;
         }
 
         /* Header Styles */
         .main-header {
             background-color: var(--background-color);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -39,7 +41,7 @@
         }
 
         .nav-container {
-            max-width: 1200px;
+            width: min(100%, 75rem);
             margin: 0 auto;
             padding: 1rem;
             display: flex;
@@ -48,7 +50,7 @@
         }
 
         .logo h1 {
-            font-size: 1.8rem;
+            font-size: clamp(1.25rem, 3vw, 1.8rem);
             color: var(--primary-color);
             transition: transform 0.3s ease;
         }
@@ -68,6 +70,10 @@
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
+            padding: 0.5rem;
+            min-height: 48px;
+            display: flex;
+            align-items: center;
         }
 
         .nav-links a:hover {
@@ -76,47 +82,52 @@
 
         .nav-links a.active {
             color: var(--primary-color);
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 0.125rem solid var(--primary-color);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
             position: relative;
             overflow: hidden;
+            padding: 1rem;
         }
 
         .hero-content {
             text-align: center;
-            max-width: 800px;
-            padding: 2rem;
+            width: min(100%, 50rem);
+            padding: clamp(1rem, 5vw, 2rem);
             z-index: 1;
         }
 
         .hero h2 {
-            font-size: 3rem;
+            font-size: clamp(1.5rem, 5vw, 3rem);
             margin-bottom: 1rem;
             color: var(--text-color);
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.2rem);
             margin-bottom: 2rem;
         }
 
         /* Buttons */
         .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(0.75rem, 3vw, 1rem) clamp(1.5rem, 5vw, 2rem);
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             margin: 0.5rem;
+            min-width: 48px;
+            min-height: 48px;
         }
 
         .btn.primary {
@@ -131,32 +142,32 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 0.3125rem 0.9375rem rgba(0,0,0,0.2);
         }
 
         /* Features Section */
         .features {
-            padding: 5rem 2rem;
+            padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 5vw, 2rem);
             background-color: var(--background-color);
         }
 
         .features h3 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
+            width: min(100%, 75rem);
             margin: 0 auto;
         }
 
         .feature-card {
             background-color: var(--accent-color);
-            padding: 2rem;
+            padding: clamp(1rem, 3vw, 2rem);
             border-radius: 10px;
             text-align: center;
             transition: transform 0.3s ease;
@@ -167,52 +178,52 @@
         }
 
         .feature-icon {
-            font-size: 2.5rem;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
         /* About Section */
         .about {
-            padding: 5rem 2rem;
+            padding: clamp(3rem, 8vw, 5rem) clamp(1rem, 5vw, 2rem);
             background-color: var(--accent-color);
         }
 
         .about-content {
-            max-width: 1200px;
+            width: min(100%, 75rem);
             margin: 0 auto;
         }
 
         .about h3 {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            margin-bottom: clamp(2rem, 5vw, 3rem);
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
         }
 
         .about-item {
             text-align: center;
-            padding: 2rem;
+            padding: clamp(1rem, 3vw, 2rem);
         }
 
         /* Footer */
         footer {
             background-color: #333;
             color: white;
-            padding: 3rem 2rem 1rem;
+            padding: clamp(2rem, 5vw, 3rem) clamp(1rem, 3vw, 2rem) clamp(0.5rem, 2vw, 1rem);
         }
 
         .footer-content {
-            max-width: 1200px;
+            width: min(100%, 75rem);
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+            gap: clamp(1rem, 3vw, 2rem);
         }
 
         .footer-section h4 {
@@ -228,6 +239,10 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s ease;
+            padding: 0.5rem;
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
         }
 
         .footer-section a:hover {
@@ -236,8 +251,8 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
+            margin-top: clamp(1rem, 3vw, 2rem);
+            padding-top: clamp(1rem, 3vw, 2rem);
             border-top: 1px solid rgba(255,255,255,0.1);
         }
 
@@ -247,6 +262,9 @@
             background: none;
             border: none;
             cursor: pointer;
+            min-width: 48px;
+            min-height: 48px;
+            padding: 0.5rem;
         }
 
         .mobile-menu span {
@@ -259,9 +277,21 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .nav-links {
                 display: none;
+                position: fixed;
+                top: 4rem;
+                left: 0;
+                width: 100%;
+                background: var(--background-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .mobile-menu {
@@ -269,12 +299,39 @@
             }
 
             .hero h2 {
-                font-size: 2rem;
+                font-size: clamp(1.25rem, 4vw, 1.5rem);
+            }
+        }
+
+        @media (min-width: 481px) and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 4rem;
+                left: 0;
+                width: 100%;
+                background: var(--background-color);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
             }
 
-            .features-grid,
-            .about-grid {
-                grid-template-columns: 1fr;
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: clamp(1.5rem, 5vw, 2rem);
+            }
+        }
+
+        @media (min-width: 769px) {
+            .nav-links {
+                display: flex;
             }
         }
 
@@ -314,6 +371,7 @@
                 <li><a href="aide-immediate.html">Aide Immédiate</a></li>
                 <li><a href="abonnement.html">Abonnement</a></li>
                 <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html">A propos</a></li>
             </ul>
             <div class="mobile-menu">
                 <span></span>
@@ -423,27 +481,26 @@
             <div class="footer-section">
                 <h3>Liens Rapides</h3>
                 <ul>
-                    <li><a href="#accueil">Accueil</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#apropos">À Propos</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="aide-immediate.html">Aide Immédiate</a></li>           
+                    <li><a href="aboutus.html">À Propos</a></li>
                 </ul>
             </div>
-            <footer class="footer">
-                <div class="footer-section">
-                    <h3>Suivez-nous</h3>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/fresh__.mind/" target="_blank">
-                            <img src="C:\Users\mouad\Desktop\fresh mind\instagram.png" >
-                          </a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://www.tiktok.com/@fresh.mind09" target="_blank">
-                            <img src="C:\Users\mouad\Desktop\fresh mind\tik-tok.png" >
-                          </a>
-                    </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/fresh__.mind/" target="_blank">
+                        <img src="instagram.png" alt="Instagram" width="30" height="30">
+                    </a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@fresh.mind09" target="_blank">
+                        <img src="tik-tok.png" alt="TikTok" width="30" height="30">
+                    </a>
                 </div>
+            </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 fresh mind. Tous droits réservés.</p>
@@ -529,6 +586,31 @@
             }
         }
     </style>
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function() {
+        window.AgentInitializer.init({
+          agentRenderURL: "https://agent.jotform.com/0194dcfb29e178a3b6c4e2f505cf07844f04",
+          rootId: "JotformAgent-0194dcfb29e178a3b6c4e2f505cf07844f04",
+          formID: "0194dcfb29e178a3b6c4e2f505cf07844f04",
+          queryParams: ["skipWelcome=1", "maximizable=1"],
+          domain: "https://www.jotform.com",
+          isDraggable: false,
+          background: "linear-gradient(180deg, #398166 0%, #eaf6c8 100%)",
+          buttonBackgroundColor: "#3C4C1E",
+          buttonIconColor: "#FFF",
+          variant: false,
+          customizations: {
+            "greeting": "Yes",
+            "greetingMessage": "Hi! How can I assist you?",
+            "openByDefault": "No",
+            "pulse": "Yes",
+            "position": "right",
+            "autoOpenChatIn": "0"
+          },
+          isVoice: false
+        });
+      });
+    </script>
 </body>
 </html>
-

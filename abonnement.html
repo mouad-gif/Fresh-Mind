@@ -26,6 +26,7 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
+            padding-top: 80px;
         }
 
         .main-header {
@@ -52,15 +53,25 @@
         }
 
         .nav-links {
-            display: flex;
+            display: none;
             list-style: none;
             gap: 2rem;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .nav-links.active {
+            display: flex;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 500;
+            padding: 0.5rem 0;
+            display: block;
         }
 
         .nav-links a:hover {
@@ -72,6 +83,30 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
+        .menu-toggle {
+            display: block;
+            cursor: pointer;
+            padding: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .menu-toggle {
+                display: none;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-direction: row;
+                width: auto;
+                padding: 0;
+            }
+        }
+
+        /* Rest of your existing styles remain the same */
         .hero {
             height: 60vh;
             display: flex;
@@ -192,6 +227,7 @@
             <div class="logo">
                 <h1>FRESH MIND</h1>
             </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
@@ -200,6 +236,7 @@
                 <li><a href="aide-immediate.html">Aide Immédiate</a></li>
                 <li><a href="abonnement.html" class="active">Abonnement</a></li>
                 <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html">A propos</a></li>
             </ul>
         </nav>
     </header>
@@ -216,8 +253,8 @@
         <div class="plan-grid">
             <div class="plan-card">
                 <h2>Plan d'une minute </h2>
-                <p><strong>Prix : 1DH</strong></p>
-                <p>Profitez d'une écoute professionnelle et bienveillante au tarif accessible de 1 DH par minute.</p>
+                <p><strong>Prix : 2DH</strong></p>
+                <p>Profitez d'une écoute professionnelle et bienveillante au tarif accessible de 2 DH par minute.</p>
                     <li> Prenez soin de votre bien-être mental sans vous soucier de votre budget.</li>
                 </ul>
                 <p><em>Commencez dès maintenant et prenez soin de vous.</em></p>
@@ -266,11 +303,25 @@
                 <h4>Suivez-nous</h4>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/fresh__.mind/" target="_blank">
+                        <img src="instagram.png" alt="Instagram" width="30" height="30">
+                    </a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@fresh.mind09" target="_blank">
+                        <img src="tik-tok.png" alt="TikTok" width="30" height="30">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 fresh mind. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>

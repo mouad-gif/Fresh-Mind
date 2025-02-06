@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRESH MIND | Notre Équipe</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #398166;
+            --background-color: #ffffff;
+            --accent-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .main-header {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .logo h1:hover {
+            transform: scale(1.05);
+        }
+
+        .team-section {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #398166 0%, #a5c7b7 100%);
+            min-height: 100vh;
+        }
+
+        .team-section h2 {
+            text-align: center;
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .top-row, .bottom-row {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .bottom-row {
+            justify-content: center;
+            padding: 0 120px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+        }
+
+        .member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #398166;
+            margin: 0 auto 15px;
+            overflow: hidden;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            color: #398166;
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .member-role {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 1200px) {
+            .top-row, .bottom-row {
+                flex-wrap: wrap;
+                padding: 0;
+            }
+
+            .team-member {
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .team-member {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .mobile-menu {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--text-color);
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--background-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .mobile-menu.active span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+
+            .mobile-menu.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .mobile-menu.active span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
+        }
+
+        /* Ajustement pour le contenu sous la navbar */
+        .team-section {
+            padding-top: 120px;
+        }
+
+        @media (max-width: 768px) {
+            .team-section {
+                padding-top: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="aide-immediate.html">Aide Immédiate</a></li>
+                <li><a href="abonnement.html">Abonnement</a></li>
+                <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html" class="active">A propos</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="team-section">
+        <h2>Notre Équipe</h2>
+        <div class="team-container">
+            <div class="top-row">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team1.jpg" alt="Dr. Sarah Johnson">
+                    </div>
+                    <h3 class="member-name">Ajouhi Mouad</h3>
+                    <p class="member-role">Conseiller en bien être</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team2.jpg" alt="Dr. Michael Chen">
+                    </div>
+                    <h3 class="member-name">
+                        Goussyra Hiba</h3>
+                    <p class="member-role">Conseillère en bien être</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team3.jpg" alt="Emma Martinez">
+                    </div>
+                    <h3 class="member-name">Hamouddou Badr</h3>
+                    <p class="member-role">Conseiller en bien être</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team4.jpg" alt="David Wilson">
+                    </div>
+                    <h3 class="member-name">Assebbane Salma</h3>
+                    <p class="member-role">ConseillèreConseiller en bien être</p>
+                </div>
+            </div>
+
+            <div class="bottom-row">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team5.jpg" alt="Lisa Anderson">
+                    </div>
+                    <h3 class="member-name">Taoufiq Mohamed Mehdi</h3>
+                    <p class="member-role">Conseiller en bien être</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team6.jpg" alt="Youssfi Saad">
+                    </div>
+                    <h3 class="member-name">
+                        Elyoussoufi Saadd</h3>
+                    <p class="member-role">Conseiller en bien être</p>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="images/team7.jpg" alt="Ines Khoumis">
+                    </div>
+                    <h3 class="member-name">Elkhoumiss Nour</h3>
+                    <p class="member-role">
+                        Assistante d'orientation</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

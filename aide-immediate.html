@@ -45,6 +45,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo h1 {
@@ -60,7 +61,23 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                width: auto;
+                margin-top: 0;
+                gap: 2rem;
+            }
+            
+            .nav-container {
+                flex-wrap: nowrap;
+            }
         }
 
         .nav-links a {
@@ -68,6 +85,7 @@
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
+            padding: 0.5rem;
         }
 
         .nav-links a:hover {
@@ -87,6 +105,7 @@
             background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
             position: relative;
             overflow: hidden;
+            margin-top: 80px;
         }
 
         .hero-content {
@@ -225,6 +244,7 @@
                 <li><a href="aide-immediate.html" class="active">Aide Immédiate</a></li>
                 <li><a href="abonnement.html">Abonnement</a></li>
                 <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html">A propos</a></li>
             </ul>
         </nav>
     </header>
@@ -292,6 +312,32 @@
             <p>&copy; 2025 FRESH MIND. Tous droits réservés.</p>
         </div>
     </footer>
+    <script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
+<script>
+  window.addEventListener("DOMContentLoaded", function() {
+    window.AgentInitializer.init({
+      agentRenderURL: "https://agent.jotform.com/0194dcfb29e178a3b6c4e2f505cf07844f04",
+      rootId: "JotformAgent-0194dcfb29e178a3b6c4e2f505cf07844f04",
+      formID: "0194dcfb29e178a3b6c4e2f505cf07844f04",
+      queryParams: ["skipWelcome=1", "maximizable=1"],
+      domain: "https://www.jotform.com",
+      isDraggable: false,
+      background: "linear-gradient(180deg, #398166 0%, #eaf6c8 100%)",
+      buttonBackgroundColor: "#3C4C1E",
+      buttonIconColor: "#FFF",
+      variant: false,
+      customizations: {
+        "greeting": "Yes",
+        "greetingMessage": "Hi! How can I assist you?",
+        "openByDefault": "No",
+        "pulse": "Yes",
+        "position": "right",
+        "autoOpenChatIn": "0"
+      },
+      isVoice: false
+    });
+  });
+</script>
 </body>
 
 </html>

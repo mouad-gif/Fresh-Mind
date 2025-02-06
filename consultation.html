@@ -6,29 +6,12 @@
     <meta name="description" content="SOS Bien-Être - Prenez rendez-vous avec nos professionnels pour des consultations en santé mentale adaptées à vos besoins.">
     <title>FRESH MIND | Consultation</title>
     <style>
-        /* Ajoutez ceci dans votre CSS */
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Utilise toute la hauteur de l'écran */
-}
-
-.consultation {
-    flex: 1; /* Prend l'espace disponible */
-}
-
-footer {
-    margin-top: auto; /* Pousse le footer vers le bas */
-}
+        /* Variables et styles de base */
         :root {
             --primary-color: #398166;
             --secondary-color: #398166;
             --text-color: #398166;
-            --background-color: #ffffff ;
+            --background-color: #ffffff;
             --accent-color: #ffffff;
             --danger-color: #E74C3C;
         }
@@ -44,9 +27,12 @@ footer {
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* Header Styles */
+        /* En-tête */
         .main-header {
             background-color: var(--background-color);
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -72,10 +58,6 @@ footer {
             transition: transform 0.3s ease;
         }
 
-        .logo h1:hover {
-            transform: scale(1.05);
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
@@ -89,22 +71,19 @@ footer {
             transition: color 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
         .nav-links a.active {
             color: var(--primary-color);
             border-bottom: 2px solid var(--primary-color);
         }
 
+        /* Menu mobile */
         .mobile-menu {
             display: none;
             background: none;
             border: none;
             cursor: pointer;
+            padding: 0.5rem;
         }
-        
 
         .mobile-menu span {
             display: block;
@@ -115,34 +94,134 @@ footer {
             transition: 0.3s;
         }
 
+        /* Contenu principal */
+        .consultation {
+            flex: 1;
+            padding: 8rem 1rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Section politique de réservation */
+        .reservation-policy {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+        }
+
+        .reservation-policy ol {
+            text-align: left;
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        /* Pied de page */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            margin: 20px;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--background-color);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
             }
 
             .mobile-menu {
                 display: block;
             }
+
+            .consultation {
+                padding-top: 6rem;
+            }
+
+            .reservation-policy {
+                padding: 1.5rem;
+                margin: 1rem;
+            }
         }
 
-        /* Main Section */
-        .consultation {
-            padding: 8rem 2rem 4rem;
-            text-align: center;
-            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+
+            .consultation h2 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin: 0.5rem 0;
+            }
         }
 
-        .consultation h2 {
-            font-size: 2.5rem;
-            color: var(--text-color);
-            margin-bottom: 1rem;
-        }
-
-        .consultation p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
+        /* Styles communs */
         .btn {
             display: inline-block;
             padding: 1rem 2rem;
@@ -150,7 +229,6 @@ footer {
             text-decoration: none;
             font-weight: 600;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin: 0.5rem;
         }
 
         .btn.primary {
@@ -158,60 +236,19 @@ footer {
             color: white;
         }
 
-        .btn.secondary {
-            background-color: var(--secondary-color);
-            color: white;
+        h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-section a:hover {
-            color: var(--primary-color);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- En-tête -->
     <header class="main-header">
         <nav class="nav-container">
             <div class="logo">
@@ -225,51 +262,126 @@ footer {
                 <li><a href="aide-immediate.html">Aide Immédiate</a></li>
                 <li><a href="abonnement.html">Abonnement</a></li>
                 <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html">A propos</a></li>
             </ul>
-            <div class="mobile-menu">
+            <button class="mobile-menu" aria-label="Menu mobile">
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </button>
         </nav>
     </header>
 
-    <!-- Consultation Section -->
-    <section class="consultation">
-        <h2>Consultation Professionnelle</h2>
-        <p>Prendre soin de votre bien-être mental commence ici. Réservez une consultation avec nos experts qualifiés.</p>
-        <a href="rendez-vous.html" class="btn primary">Prendre Rendez-vous</a>
-        <a href="" class="btn secondary">En Savoir Plus</a>
-    </section>
+    <!-- Contenu principal -->
+    <main class="consultation">
+        <div class="content-container">
+            <h2>Consultation Professionnelle</h2>
+            <p>Prendre soin de votre bien-être mental commence ici. Réservez une consultation avec nos experts qualifiés.</p>
+            <a href="rendez-vous.html" class="btn primary">Prendre Rendez-vous</a>
 
-    <!-- Footer -->
-    <footer>
+            <div class="reservation-policy">
+                <h2>Politique de Réservation</h2>
+                <ol>
+                    <li><strong>Choisissez un professionnel :</strong> Parcourez notre liste de professionnels qualifiés.</li>
+                    <li><strong>Vérifiez les disponibilités :</strong> Consultez le calendrier des créneaux disponibles.</li>
+                    <li><strong>Réservez votre rendez-vous :</strong> Sélectionnez un créneau et remplissez le formulaire.</li>
+                    <li><strong>Confirmation :</strong> Recevez un e-mail de confirmation avec les détails.</li>
+                </ol>
+                <p>Pour toute question, contactez-nous à freshmindmaroc@gmail.com</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Contact</h4>
+                <h3>Contact</h3>
                 <p>Email: freshmindmaroc@gmail.com</p>
-                <p>Téléphone: +212 1 23 45 67 89</p>
-                <p>Adresse: 80000, Agadir</p>
+                <p>Téléphone: +212643569360</p>
+                <p>Adresse: 80000 , Agadir</p>
             </div>
             <div class="footer-section">
-                <h4>Liens Rapides</h4>
+                <h3>Liens Rapides</h3>
                 <ul>
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
                     <li><a href="ressources.html">Ressources</a></li>
-                    <li><a href="consultation.html">Consultation</a></li>
+                    <li><a href="aide-immediate.html">Aide Immédiate</a></li>           
+                    <li><a href="aboutus.html">À Propos</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Suivez-nous</h4>
+                <h3>Suivez-nous</h3>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.instagram.com/fresh__.mind/" target="_blank">
+                        <img src="instagram.png" alt="Instagram" width="30" height="30">
+                    </a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@fresh.mind09" target="_blank">
+                        <img src="tik-tok.png" alt="TikTok" width="30" height="30">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2025 fresh mind. Tous droits réservés.</p>
-       
+        </div>
+    </footer>
+
+    <script>
+        // Gestion du menu mobile
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Fermer le menu lors du clic à l'extérieur
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileMenu.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Adaptation dynamique de la hauteur
+        function adjustContentPadding() {
+            const headerHeight = document.querySelector('.main-header').offsetHeight;
+            document.querySelector('.consultation').style.paddingTop = `${headerHeight + 30}px`;
+        }
+
+        window.addEventListener('resize', adjustContentPadding);
+        window.addEventListener('load', adjustContentPadding);
+    </script>
+       <script src='https://cdn.jotfor.ms/s/umd/latest/for-embedded-agent.js'></script>
+       <script>
+         window.addEventListener("DOMContentLoaded", function() {
+           window.AgentInitializer.init({
+             agentRenderURL: "https://agent.jotform.com/0194dcfb29e178a3b6c4e2f505cf07844f04",
+             rootId: "JotformAgent-0194dcfb29e178a3b6c4e2f505cf07844f04",
+             formID: "0194dcfb29e178a3b6c4e2f505cf07844f04",
+             queryParams: ["skipWelcome=1", "maximizable=1"],
+             domain: "https://www.jotform.com",
+             isDraggable: false,
+             background: "linear-gradient(180deg, #398166 0%, #eaf6c8 100%)",
+             buttonBackgroundColor: "#3C4C1E",
+             buttonIconColor: "#FFF",
+             variant: false,
+             customizations: {
+               "greeting": "Yes",
+               "greetingMessage": "Hi! How can I assist you?",
+               "openByDefault": "No",
+               "pulse": "Yes",
+               "position": "right",
+               "autoOpenChatIn": "0"
+             },
+             isVoice: false
+           });
+         });
+       </script>
+</body>
+</html>

@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FRESH MIND - Évaluez votre bien-être mental grâce à nos outils interactifs et professionnels.">
     <title>FRESH MIND | Auto-évaluation</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("_t8VmDGPdgjlBpqgK");
+        })();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         :root {
             --primary-color: #398166;
             --secondary-color: #398166;
-            --text-color: #333;
+            --text-color: #398166;
             --background-color: #ffffff;
-            --accent-color: #f9f9f9;
-            --danger-color: #E74C3C;
         }
 
         * {
@@ -32,7 +35,7 @@
         /* Header Styles */
         .main-header {
             background-color: var(--background-color);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: fixed;
             width: 100%;
             top: 0;
@@ -46,6 +49,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo h1 {
@@ -54,14 +58,26 @@
             transition: transform 0.3s ease;
         }
 
-        .logo h1:hover {
-            transform: scale(1.05);
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            padding: 0.5rem 0;
+        }
+
+        @media screen and (min-width: 768px) {
+            .nav-links {
+                width: auto;
+                padding: 0;
+                gap: 2rem;
+            }
+            
+            .nav-container {
+                flex-wrap: nowrap;
+            }
         }
 
         .nav-links a {
@@ -69,6 +85,14 @@
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
+            font-size: 0.9rem;
+            padding: 0.5rem;
+        }
+
+        @media screen and (min-width: 768px) {
+            .nav-links a {
+                font-size: 1rem;
+            }
         }
 
         .nav-links a:hover {
@@ -80,97 +104,211 @@
             border-bottom: 2px solid var(--primary-color);
         }
 
-        /* Hero Section */
-        .hero {
-            height: 60vh;
+        /* Rest of your existing styles... */
+        .intro-section {
+            padding: 120px 20px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #398166 0%, #ffffff 100%);
+            color: white;
+        }
+
+        .intro-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .testimonials-slider {
+            width: 100%;
+            max-width: 1200px;
+            margin: 40px auto;
+            overflow: hidden;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .testimonials-track {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
-            text-align: center;
-            color: white;
-            padding: 2rem;
+            animation: scroll 30s linear infinite;
         }
 
-        .hero h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+        .testimonial-card {
+            min-width: 300px;
+            margin: 0 20px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
-        .btn {
-            display: inline-block;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: var(--primary-color);
-            color: white;
+        .stars {
+            color: #ffd700;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        .user-info {
+            margin-top: 15px;
+            color: #666;
+            font-style: italic;
         }
 
-        /* Content Section */
-        .content {
-            padding: 4rem 2rem;
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-180%);
+            }
+        }
+
+        .testimonials-track:hover {
+            animation-play-state: paused;
+        }
+
+        .testimonials-slider::before,
+        .testimonials-slider::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 100px;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .testimonials-slider::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+
+        .testimonials-slider::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+
+        .evaluation-form {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .content h3 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
+        .radio {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .content p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
+        .radio > input {
+            position: absolute;
+            appearance: none;
         }
 
-        .content ul {
-            list-style: disc inside;
-            margin-bottom: 2rem;
+        .radio > label {
+            cursor: pointer;
+            font-size: 30px;
+            position: relative;
+            display: inline-block;
+            transition: transform 0.3s ease;
         }
 
-        .content ul li {
-            margin-bottom: 0.5rem;
+        .radio > label > svg {
+            fill: #666;
+            transition: fill 0.3s ease;
+            width: 30px;
+            height: 30px;
         }
 
-        /* Footer */
-        footer {
-            background-color: #333;
+        .radio > label::before,
+        .radio > label::after {
+            content: "";
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background-color: #398166;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(0);
+            transition: transform 0.4s ease, opacity 0.4s ease;
+            animation: particle-explosion 1s ease-out;
+        }
+
+        .radio > label:hover > svg,
+        .radio > label:hover ~ label > svg,
+        .radio > input:checked ~ label > svg {
+            fill: #398166;
+            filter: drop-shadow(0 0 15px rgba(57, 129, 102, 0.9));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        @keyframes particle-explosion {
+            0% { opacity: 0; transform: scale(0.5); }
+            50% { opacity: 1; transform: scale(1.2); }
+            100% { opacity: 0; transform: scale(0.5); }
+        }
+
+        @keyframes shimmer {
+            0% { filter: drop-shadow(0 0 10px rgba(57, 129, 102, 0.5)); }
+            100% { filter: drop-shadow(0 0 20px rgba(57, 129, 102, 1)); }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #398166;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            background: #398166;
             color: white;
-            padding: 3rem 2rem 1rem;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .alert {
+            display: none;
+            padding: 15px;
+            background: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            margin-top: 20px;
             text-align: center;
-        }
-
-        footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #fff;
-        }
-
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
     </style>
 </head>
-
 <body>
     <header class="main-header">
         <nav class="nav-container">
@@ -185,35 +323,146 @@
                 <li><a href="aide-immediate.html">Aide Immédiate</a></li>
                 <li><a href="abonnement.html">Abonnement</a></li>
                 <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html">A propos</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero">
-        <div>
-            <h2>Évaluez votre bien-être mental</h2>
-            <p>Utilisez nos outils interactifs pour mieux comprendre votre état mental et découvrir des solutions adaptées.</p>
-            <a href="#evaluation" class="btn">Commencer l'évaluation</a>
-        </div>
+    <section class="intro-section">
+        <h2>Évaluations de nos services</h2>
+        <p>Découvrez les expériences de nos clients</p>
     </section>
 
-    <section class="content" id="evaluation">
-        <h3>Pourquoi faire une auto-évaluation&nbsp;?</h3>
-        <p>Une auto-évaluation est un premier pas essentiel pour prendre soin de votre bien-être mental. Elle vous aide à :</p>
-        <ul>
-            <li>Identifier les signes de stress, d'anxiété ou de dépression.</li>
-            <li>Comprendre vos émotions et comportements actuels.</li>
-            <li>Planifier les prochaines étapes vers un meilleur équilibre.</li>
-        </ul>
-        <p>Nos outils sont simples, rapides et basés sur des approches reconnues en psychologie.</p>
-    </section>
+    <div class="testimonials-slider">
+        <div class="testimonials-track">
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Un service exceptionnel qui m'a vraiment aidé à surmonter mes difficultés."</p>
+                <div class="user-info">Yasmine Alaoui, 22 ans - Casablanca</div>
+            </div>
 
-    <footer>
-        <p>&copy; 2025 FRESH MIND. Tous droits réservés.</p>
-        <div class="footer-bottom">
-            <p>Site web conçu pour vous offrir un espace de soutien et de bien-être.</p>
+            <div class="testimonial-card">
+                <div class="stars">★★★★☆</div>
+                <p>"Très satisfait de l'accompagnement. Les conseils sont pratiques."</p>
+                <div class="user-info">Karim Benjelloun, 35 ans - Rabat</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Une approche professionnelle et respectueuse. Je recommande."</p>
+                <div class="user-info">Fatima Zohair,  45 ans - Marrakech</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★☆</div>
+                <p>"L'équipe est à l'écoute et bienveillante. Un vrai soutien."</p>
+                <div class="user-info">Omar Tazi, 31 ans - Tanger</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Excellent suivi et de très bons conseils. Merci!"</p>
+                <div class="user-info">Leila Bennani, 27 ans - Laayoune</div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="stars">★★★★★</div>
+                <p>"Un service qui change la vie. Je me sens mieux maintenant."</p>
+                <div class="user-info">Mehdi Rachidi, 17 ans - Agadir</div>
+            </div>
         </div>
-    </footer>
+    </div>
+
+    <form class="evaluation-form" id="evaluationForm">
+        <div class="form-group">
+            <label>Évaluez notre service :</label>
+            <div class="radio">
+                <input value="5" name="rating" type="radio" id="rating-5" />
+                <label title="5 étoiles" for="rating-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                        <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+                    </svg>
+                </label>
+
+                <input value="4" name="rating" type="radio" id="rating-4" />
+                <label title="4 étoiles" for="rating-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                        <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+                    </svg>
+                </label>
+
+                <input value="3" name="rating" type="radio" id="rating-3" />
+                <label title="3 étoiles" for="rating-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                        <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+                    </svg>
+                </label>
+
+                <input value="2" name="rating" type="radio" id="rating-2" />
+                <label title="2 étoiles" for="rating-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                        <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+                    </svg>
+                </label>
+
+                <input value="1" name="rating" type="radio" id="rating-1" />
+                <label title="1 étoile" for="rating-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
+                        <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"></path>
+                    </svg>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Votre avis et suggestions :</label>
+            <textarea required placeholder="Partagez votre expérience et vos suggestions..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Envoyer mon évaluation</button>
+        <div class="alert" id="successAlert">Merci ! Votre évaluation a été envoyée avec succès.</div>
+    </form>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const track = document.querySelector('.testimonials-track');
+            track.innerHTML += track.innerHTML;
+
+            const form = document.getElementById('evaluationForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const rating = document.querySelector('input[name="rating"]:checked')?.value;
+                const feedback = document.querySelector('textarea').value;
+
+                if (!rating || !feedback) {
+                    alert('Veuillez remplir tous les champs');
+                    return;
+                }
+
+                const templateParams = {
+                    from_name: "Utilisateur Fresh Mind",
+                    to_name: "Administration Fresh Mind",
+                    rating: rating,
+                    feedback: feedback,
+                    reply_to: "freshmindmaroc@gmail.com"
+                };
+
+                emailjs.send('service_oppd6zo', 'template_rpqbrl7', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        document.getElementById('successAlert').style.display = 'block';
+                        setTimeout(() => {
+                            document.getElementById('successAlert').style.display = 'none';
+                            form.reset();
+                        }, 3000);
+                    })
+                    .catch(function(error) {
+                        console.error('FAILED...', error);
+                        alert('Erreur lors de l\'envoi : ' + error.text);
+                    });
+            });
+        });
+    </script>
 </body>
-
 </html>

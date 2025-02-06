@@ -3,133 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Réservation de Rendez-vous - SOS Bien-Être</title>
-    <link rel="stylesheet" >
+    <title>FRESH MIND | Consultation</title>
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #398166;
+            --background-color: #ffffff;
+            --accent-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .main-header {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+
+        .consultation-container {
+            max-width: 1200px;
+            margin: 100px auto 0;
+            padding: 2rem;
+        }
+
+        .consultation-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .consultation-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .consultation-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        #calendar {
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .consultation-container {
+                margin: 80px 1rem 0;
+                padding: 1rem;
+            }
+
+            .consultation-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.2.0/fullcalendar.min.css" rel="stylesheet">
 </head>
 <body>
-    <style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-}
-
-header {
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-
-h1 {
-    font-size: 2em;
-}
-
-#calendrier {
-    margin: 20px;
-    text-align: center;
-}
-
-#details {
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
-}
-
-form label {
-    display: block;
-    margin-top: 10px;
-}
-
-form input, form select {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-
-    </style>
-    <header>
-        <h1>Réservez votre Consultation</h1>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+        </nav>
     </header>
 
-    <section id="calendrier">
+    <main class="consultation-container">
+        <div class="consultation-header">
+            <h1>Prenez rendez-vous</h1>
+            <p>Réservez votre consultation avec l'un de nos professionnels</p>
+        </div>
+
         <div id="calendar"></div>
-    </section>
 
-    <section id="details">
-        <h2>Choisissez un créneau horaire :</h2>
-        <form id="reservationForm" action="reservations.php" method="POST">
-            <label for="date">Date:</label>
-            <input type="date" id="date" name="date" required>
-            
-            <label for="heure">Heure:</label>
-            <select id="heure" name="heure" required>
-                <!-- Les créneaux horaires seront ajoutés ici dynamiquement -->
-            </select>
-            
-            <label for="nom">Nom:</label>
-            <input type="text" id="nom" name="nom" required>
+        <form class="consultation-form" id="reservationForm">
+            <div class="form-group">
+                <label for="date">Date du rendez-vous</label>
+                <input type="date" id="date" name="date" required>
+            </div>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
+            <div class="form-group">
+                <label for="heure">Heure du rendez-vous</label>
+                <select id="heure" name="heure" required>
+                    <option value="">Sélectionnez une heure</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                </select>
+            </div>
 
-            <button type="submit">Réserver</button>
+            <div class="form-group">
+                <label for="nom">Nom complet</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Adresse email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <button type="submit" class="btn-submit">Continuer</button>
         </form>
-    </section>
+    </main>
 
     <script>
-             document.addEventListener('DOMContentLoaded', function() {
-    const calendarEl = document.getElementById('calendar');
-    const heureSelect = document.getElementById('heure');
-    
-    // Initialiser FullCalendar
-    const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        events: '/path_to_php_to_get_events.php', // URL pour récupérer les événements réservés
-        dateClick: function(info) {
-            document.getElementById('date').value = info.dateStr;
-            updateAvailableTimes(info.dateStr);
-        }
-    });
-    
-    calendar.render();
-
-    // Mettre à jour les créneaux horaires disponibles en fonction du jour sélectionné
-    function updateAvailableTimes(date) {
-        // Récupérer les créneaux horaires pour la date sélectionnée via une requête AJAX
-        fetch('/get_available_times.php?date=' + date)
-            .then(response => response.json())
-            .then(data => {
-                // Vider la liste des heures actuelles
-                heureSelect.innerHTML = '';
-                data.times.forEach(function(time) {
-                    let option = document.createElement('option');
-                    option.value = time;
-                    option.textContent = time;
-                    heureSelect.appendChild(option);
-                });
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('reservationForm');
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                location.href = 'remerciement.html';
             });
-    }
-});
+        });
     </script>
 </body>
 </html>
