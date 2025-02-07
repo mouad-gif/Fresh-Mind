@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FRESH MIND - Cours sur la Gestion des Émotions par Dr. Mehdi Rachidi">
-    <title>FRESH MIND | Gestion du Stress</title>
+    <meta name="description" content="FRESH MIND - Cours sur les Techniques de Méditation">
+    <title>FRESH MIND | Techniques de Méditation</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Variables */
@@ -235,16 +235,21 @@
             <div class="logo">
                 <h1>FRESH MIND</h1>
             </div>
-           
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="aide-immediate.html">Aide Immédiate</a></li>
+            </ul>
         </nav>
     </header>
 
     <div class="course-detail-container">
         <div class="course-main-header">
-            <h1>Gestion du Stress</h1>
+            <h1>Techniques de Méditation</h1>
             <div class="instructor-info">
-                <img src="hans.jfif" alt="Dr. Mehdi Rachidi" class="instructor-img">
-                <span>Enseigné par Dr. Mehdi Rachidi</span>
+                <img src="nadia.jfif" alt="Dr. Nadia Ziani" class="instructor-img">
+                <span>Enseigné par Dr. Nadia Ziani</span>
             </div>
         </div>
 
@@ -252,26 +257,26 @@
             <div class="course-main-content">
                 <h2>Ce que vous allez apprendre</h2>
                 <p class="course-description-full">
-                    Découvrez des techniques efficaces pour gérer votre stress au quotidien. Ce cours vous fournira des outils pratiques et des stratégies éprouvées pour faire face aux situations stressantes et maintenir votre équilibre mental.
+                    Initiez-vous aux différentes techniques de méditation pour un esprit plus serein.
                 </p>
 
                 <div class="course-program">
                     <h3>Programme du cours</h3>
                     <ul class="chapter-list">
                         <li class="chapter-item">
-                            <span><i class="fas fa-play-circle"></i> Comprendre le stress et ses mécanismes</span>
+                            <span><i class="fas fa-play-circle"></i> Chapitre 1 : Les bases de la méditation</span>
                             <span>45 min</span>
                         </li>
                         <li class="chapter-item">
-                            <span><i class="fas fa-play-circle"></i> Identifier les sources de stress</span>
+                            <span><i class="fas fa-play-circle"></i> Chapitre 2 : Techniques de respiration</span>
                             <span>35 min</span>
                         </li>
                         <li class="chapter-item">
-                            <span><i class="fas fa-play-circle"></i> Techniques de relaxation et de respiration</span>
+                            <span><i class="fas fa-play-circle"></i> Chapitre 3 : Méditation guidée</span>
                             <span>40 min</span>
                         </li>
                         <li class="chapter-item">
-                            <span><i class="fas fa-play-circle"></i> Stratégies de gestion du stress au quotidien</span>
+                            <span><i class="fas fa-play-circle"></i> Chapitre 4 : Intégration au quotidien</span>
                             <span>30 min</span>
                         </li>
                     </ul>
@@ -282,23 +287,23 @@
                 <div class="course-info-box">
                     <div>
                         <i class="fas fa-clock"></i>
-                        <span>Durée totale : 3 heures</span>
+                        <span>Durée totale : 2.5 heures</span>
                     </div>
                     <div>
                         <i class="fas fa-book"></i>
-                        <span>6 chapitres complets</span>
+                        <span>4 chapitres complets</span>
                     </div>
                     <div>
                         <i class="fas fa-signal"></i>
-                        <span>Niveau : Intermédiaire</span>
+                        <span>Niveau : Tous niveaux</span>
                     </div>
                 </div>
 
                 <div class="price-tag">
-                    199 DH
+                    99 DH
                 </div>
 
-                <a href="login.html" class="buy-button" onclick="redirectToLogin()">
+                <a href="login.html" class="buy-button" onclick="startCourse(event, this)">
                     Commencer maintenant
                 </a>
             </div>
@@ -306,7 +311,8 @@
     </div>
 
     <script>
-        function redirectToLogin() {
+        function startCourse(event, button) {
+            event.preventDefault();
             window.location.href = "login.html";
         }
     </script>

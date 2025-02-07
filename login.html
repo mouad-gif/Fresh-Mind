@@ -68,6 +68,28 @@
             font-size: 1rem;
         }
 
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            font-size: 1rem;
+            color: var(--text-color);
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            padding: 0.8rem;
+            background-color: white;
+            color: var(--text-color);
+        }
+
+        .form-group select option:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -99,7 +121,7 @@
         }
 
         .btn {
-            display: inline-block;
+            display: block;
             padding: 1rem 2rem;
             background-color: var(--primary-color);
             color: white;
@@ -108,8 +130,9 @@
             font-size: 1.1rem;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: 100%;
-            margin-top: 1rem;
+            width: 50%;
+            margin: 1rem auto;
+            text-align: center;
         }
 
         .btn:hover {
@@ -125,6 +148,14 @@
         .toggle-form a {
             color: var(--primary-color);
             text-decoration: none;
+        }
+
+        .payment-fields {
+            display: none;
+        }
+
+        .payment-fields.active {
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -173,59 +204,135 @@
             <div class="payment-section">
                 <h2>Méthode de paiement</h2>
                 <div class="payment-methods">
-                    <div class="payment-method active">Carte bancaire</div>
-                    <div class="payment-method">PayPal</div>
-                    <div class="payment-method">Apple Pay</div>
+                    <div class="payment-method active" data-method="card">Carte bancaire</div>
+                    <div class="payment-method" data-method="paypal">PayPal</div>
+                    <div class="payment-method" data-method="applepay">Apple Pay</div>
                 </div>
 
-                <div class="form-group">
-                    <label for="cardholder">Nom sur la carte</label>
-                    <input type="text" id="cardholder" name="cardholder" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="card-number">Numéro de carte</label>
-                    <input type="text" id="card-number" name="card-number" required>
-                </div>
-
-                <div class="form-grid">
+                <!-- Champs pour carte bancaire -->
+                <div id="card-fields" class="payment-fields active">
                     <div class="form-group">
-                        <label for="expiry">Date d'expiration</label>
-                        <input type="text" id="expiry" name="expiry" placeholder="MM/AA" required>
+                        <label for="cardholder">Nom sur la carte</label>
+                        <input type="text" id="cardholder" name="cardholder" required>
                     </div>
+
                     <div class="form-group">
-                        <label for="cvv">CVV</label>
-                        <input type="text" id="cvv" name="cvv" required>
+                        <label for="card-number">Numéro de carte</label>
+                        <input type="text" id="card-number" name="card-number" required>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="expiry">Date d'expiration</label>
+                            <input type="text" id="expiry" name="expiry" placeholder="MM/AA" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV</label>
+                            <input type="text" id="cvv" name="cvv" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="billing-address">Adresse de facturation</label>
+                        <input type="text" id="billing-address" name="billing-address" required>
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="billing-address">Adresse de facturation</label>
-                    <input type="text" id="billing-address" name="billing-address" required>
+                <!-- Champs pour PayPal -->
+                <div id="paypal-fields" class="payment-fields">
+                    <div class="form-group">
+                        <label for="paypal-email">Email PayPal</label>
+                        <input type="email" id="paypal-email" name="paypal-email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="paypal-amount">Montant</label>
+                        <input type="number" id="paypal-amount" name="paypal-amount" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paypal-description">Description du paiement (optionnel)</label>
+                        <input type="text" id="paypal-description" name="paypal-description">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Source de fonds</label>
+                        <select name="paypal-source" id="paypal-source" required>
+                            <option value="balance">Solde PayPal</option>
+                            <option value="card">Carte bancaire liée</option>
+                            <option value="bank">Compte bancaire lié</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="paypal-2fa">Code de vérification 2FA</label>
+                        <input type="text" id="paypal-2fa" name="paypal-2fa" required>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="checkbox" id="paypal-terms" required>
+                        <label for="paypal-terms">J'accepte les conditions d'utilisation de PayPal</label>
+                    </div>
+                </div>
+
+                <!-- Champs pour Apple Pay -->
+                <div id="applepay-fields" class="payment-fields">
+                    <div class="form-group">
+                        <label for="apple-device">Type d'appareil Apple</label>
+                        <select id="apple-device" name="apple-device" required>
+                            <option value="iphone">iPhone</option>
+                            <option value="ipad">iPad</option>
+                            <option value="watch">Apple Watch</option>
+                            <option value="mac">Mac</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apple-amount">Montant</label>
+                        <input type="number" id="apple-amount" name="apple-amount" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apple-billing">Adresse de facturation</label>
+                        <input type="text" id="apple-billing" name="apple-billing" required>
+                    </div>
+
+                    <div class="form-group">
+                        <p>Authentification requise via Face ID, Touch ID ou code d'accès sur votre appareil Apple</p>
+                    </div>
                 </div>
             </div>
-
-            <button type="submit" class="btn">Se connecter</button>
+            <a href="rc.html" class="btn">Se connecter</a>
         </form>
 
         <div class="toggle-form">
-            <p>Pas encore de compte ? <a href="#" id="register-link">S'inscrire</a></p>
+            <p>Si vous n'avez pas de compte,<a href="inscription.html" id="register-link">S'inscrire</a></p>
+            <p>Si vous êtes un psychologue,<a href="inscriptionpsycologue.html" id="register-link">S'inscrire</a></p>
         </div>
     </main>
 
-    <script>
-        document.getElementById('login-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Add form submission logic here
-            alert('Connexion réussie!');
-        });
 
-        // Payment method selection
+    <script>
+        // Supprimez ou commentez l'ancien code JavaScript
+        // document.getElementById('login-form').addEventListener('submit', function(e) {
+        //     e.preventDefault();
+        //     window.location.href = 'rc.html';
+        // });
+
+        // Gardez le reste du code JavaScript pour la gestion des méthodes de paiement
         const paymentMethods = document.querySelectorAll('.payment-method');
+        const paymentFields = document.querySelectorAll('.payment-fields');
+
         paymentMethods.forEach(method => {
             method.addEventListener('click', function() {
+                // Update active payment method
                 paymentMethods.forEach(m => m.classList.remove('active'));
                 this.classList.add('active');
+
+                // Show corresponding fields
+                const selectedMethod = this.getAttribute('data-method');
+                paymentFields.forEach(field => field.classList.remove('active'));
+                document.getElementById(`${selectedMethod}-fields`).classList.add('active');
             });
         });
     </script>

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inscription des psychologues - Fresh Mind. Rejoignez notre équipe de professionnels.">
+    <title>FRESH MIND | Inscription Psychologue</title>
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #398166;
+            --background-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #398166 10%, #ffffff 90%);
+            min-height: 100vh;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .inscription-container {
+            max-width: 800px;
+            margin: 100px auto;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .inscription-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .required-docs {
+            background-color: #f9f9f9;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+        }
+
+        .required-docs h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .required-docs ul {
+            list-style-type: none;
+        }
+
+        .required-docs li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .required-docs li:before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            display: block;
+            margin: 2rem auto 0;
+            transition: transform 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .inscription-container {
+                margin: 60px 20px;
+                padding: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="auto-evaluation.html">Auto-évaluation</a></li>
+                <li><a href="ressources.html">Ressources</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="aide-immediate.html">Aide Immédiate</a></li>
+                <li><a href="abonnement.html">Abonnement</a></li>
+                <li><a href="test-psychologique.html">Tests</a></li>
+                <li><a href="aboutus.html">A propos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="inscription-container">
+        <h2>Inscription des Psychologues</h2>
+        
+        <div class="required-docs">
+            <h3>Documents Requis</h3>
+            <ul>
+                <li>Diplôme en psychologie (Master ou équivalent)</li>
+                <li>Licence d'exercice professionnelle</li>
+                <li>Certificat d'inscription à l'ordre des psychologues</li>
+                <li>CV détaillé</li>
+                <li>Lettre de motivation</li>
+                <li>Casier judiciaire</li>
+            </ul>
+        </div>
+
+        <form id="inscription-form" onsubmit="redirectToThanks(event)">
+            <div class="form-group">
+                <label for="nom">Nom Complet *</label>
+                <input type="text" id="nom" name="nom" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email Professionnel *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="telephone">Téléphone *</label>
+                <input type="tel" id="telephone" name="telephone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Années d'expérience *</label>
+                <input type="text" id="experience" name="experience" required>
+            </div>
+
+            <div class="form-group">
+                <label for="specialisation">Spécialisation(s)</label>
+                <textarea id="specialisation" name="specialisation" rows="3"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="diplome">Diplôme en Psychologie *</label>
+                <input type="file" id="diplome" name="diplome" accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="licence">Licence d'Exercice *</label>
+                <input type="file" id="licence" name="licence" accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cv">CV *</label>
+                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="motivation">Lettre de Motivation *</label>
+                <input type="file" id="motivation" name="motivation" accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="casier">Casier Judiciaire *</label>
+                <input type="file" id="casier" name="casier" accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Soumettre la candidature</button>
+        </form>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: freshmindmaroc@gmail.com</p>
+                <p>Téléphone: +212643569360</p>
+                <p>Adresse: 80000 , Agadir</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="ressources.html">Ressources</a></li>
+                    <li><a href="aide-immediate.html">Aide Immédiate</a></li>
+                    <li><a href="aboutus.html">À Propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Suivez-nous</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/fresh__.mind/" target="_blank">
+                        <img src="instagram.png" alt="Instagram" width="30" height="30">
+                    </a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.tiktok.com/@fresh.mind09" target="_blank">
+                        <img src="tik-tok.png" alt="TikTok" width="30" height="30">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 fresh mind. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <style>
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            margin: 20px;
+            min-width: 250px;
+        }
+
+        .footer-section h3 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #4CAF50;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            font-size: 1.5em;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #555;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+                margin: 10px 0;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+    </style>
+    <script>
+        function redirectToThanks(event) {
+            event.preventDefault(); // Empêche la soumission par défaut du formulaire
+            // Ici vous pouvez ajouter la logique pour traiter le formulaire si nécessaire
+            window.location.href = 'rc.html'; // Redirige vers la page de remerciement
+        }
+    </script>
+</body>
+</html>

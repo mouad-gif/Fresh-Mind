@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRESH MIND | Remerciement</title>
+    <style>
+        :root {
+            --primary-color: #398166;
+            --secondary-color: #398166;
+            --text-color: #398166;
+            --background-color:#ffffff;
+            --accent-color: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .main-header {
+            background-color: var(--primary-color);
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            color: white;
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .thank-you-container {
+            max-width: 800px;
+            margin: 80px auto;
+            padding: 40px 20px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .thank-you-icon {
+            font-size: 64px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .thank-you-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .thank-you-message {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #2c6b52;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="logo">
+                <h1>FRESH MIND</h1>
+            </div>
+        </nav>
+    </header>
+
+    <div class="thank-you-container">
+        <div class="thank-you-icon">✓</div>
+        <h2 class="thank-you-title">Merci pour votre inscription!</h2>
+        <p class="thank-you-message">
+            Nous avons bien reçu votre demande d'inscription. Un email de confirmation vous sera envoyé dans les 24h suivantes .
+            <br><br>
+            Veuillez vérifier votre boîte de réception (et vos spams) pour confirmer votre compte.
+        </p>
+        <a href="index.html" class="btn">Retour à l'accueil</a>
+    </div>
+
+</body>
+</html>
